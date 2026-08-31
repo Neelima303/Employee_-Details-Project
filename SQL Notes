@@ -1,0 +1,201 @@
+What is Database ?
+------------------
+=> Database is a collection of data.
+=> It is used to store the information.
+=> Database has infinite storage space.
+=> We can store the data in 3 ways :
+   -> structured data : excel ,sql 
+   -> unstructured data : file manager
+   -> Semi structured data : JavaScript , json .
+=> Storing the data using programming language that type of data is called as semi structured data.
+=> SQL or Relational databases are used to store and manage the data objects that are related to one another, i.e. the process of handling data in a relational database is done based on a relational model.
+=> This relational model is an approach to manage data in a structured way (using tables). A system used to manage these relational databases is known as Relational Database Management System (RDBMS).
+
+
+Types of Databases :
+--------------------
+1. Centralized Database :
+-------------------------
+=> One database + Multiple users
+2.Distributed Database :
+------------------------
+=> Multiple Databases + Multiple Users 
+3.Personal Database :
+---------------------
+=> Single user +single Database
+4.End User Database:
+--------------------
+=> Applications .
+5. Commercial Database:
+-----------------------
+=>User have to pay for accessing Data.
+6.Relational Database :
+-----------------------
+=> Data is represented in tables contains rows and columns
+=> Row -> Tuples / Record
+=> Column -> Attributes
+7.Cloud Database:
+-----------------
+=> Data is stored in cloud and mainly build for virtual Environment 
+8. Object Oriented Database:
+-----------------------------
+=> Object Oriented Programming + Relational Database 
+9.Graph Database:
+-------------------
+=> Contains nodes (Entity) and Edges (Relationship between entities)
+
+==============================================> XXXXXXXXXXXXXXXXXXXXXXX <================================================================
+
+What is RDBMS ?
+---------------
+=> RDBMS stands for Relational Database Management System. RDBMS is the basis for SQL, and for all modern database systems like MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.
+=> A Relational database management system (RDBMS) is a database management system (DBMS) that is based on the relational model as introduced by E. F. Codd in 1970.
+
+What is a Table?
+-----------------
+=> The data in an RDBMS is stored in database objects known as tables. This table is basically a collection of related data entries and it consists of numerous columns and rows.
+
+What is a Record or a Row?
+---------------------------
+=> A record is also called as a row of data is each individual entry that exists in a table. 
+=> A record is a horizontal entity in a table.
+=> No duplicate tuples accepted .
+=> Follow same format.
+
+What is a Column/Attributes ?
+------------------
+=> A column is a vertical entity in a table that contains all information associated with a specific field in a table.
+=> Attribute should have name.
+=> Unique Attribute -> Primary key.
+
+What is a Field?
+-----------------
+=> It is an intersection of tuple and attribute.
+=> Every table is broken up into smaller entities called fields. A field is a column in a table that is designed to maintain specific information about every record in the table.
+
+Cardinality :
+--------------
+=> Number of Tuples or Rows called cardinality.
+Degree:
+------
+=> Number of Attributes or columns called Degree.
+
+Domain:
+-------
+=> Possible values given for an attributes.
+
+NULL values :
+-------------
+=> If a cell or field  kept blank during a data insertion.
+=> Not equal to Zero or any space.
+
+Difference between DBMS and RDMS
+
+DBMS :
+------
+=> Database Management System 
+=> Data is stored as file system.
+=> Hierarchical Form / Navigation form.
+=> No relationship between data.
+=> No normalization 
+=> Doesn't support the distributed database.
+=> It can handle small data
+=> It supports single user
+=> Example : File System ,Xml etc.
+
+RDMS:
+------
+=> Relational DBMS.
+=> Data is Stored in Tabular form.
+=> Tables form.
+=> Relationship between Data is also represented in tables.
+=> Normalization can be applied.
+=> Supports distributed database.
+=> It can handle large amount of data. 
+=> It supports multiple users.
+=> Example : Oracle , Sql , Mysql , SqlServer etc.
+
+Types of SQL Databases :
+--------------------------
+There are many popular RDBMS available to work with.
+=> MySQL
+=> MS SQL Server
+=> ORACLE
+=> MS ACCESS
+=> PostgreSQL
+=> SQLite
+
+
+
+MySQL :
+---------
+=> MySQL is an open source SQL database, which is developed by a Swedish company, MySQL AB. MySQL is pronounced as "my ess-que-ell," in contrast with SQL, pronounced "sequel."
+=> MySQL is supporting many different platforms including Microsoft Windows, the major Linux distributions, UNIX, and Mac OS X.
+=> MySQL has free and paid versions, depending on its usage (non-commercial/commercial) and features. MySQL comes with a very fast, multi-threaded, multi-user and robust SQL database server.
+
+History :
+---------
+=> 1994 - Development of MySQL by Michael Widenius & David Axmark beginning in 1994.
+
+=> 1995 - First internal release on 23rd May 1995.
+
+=> 1998 - Windows Version was released on the 8th January 1998 for Windows 95 and NT.
+
+=> 2001 - Version 3.23 released beta from June 2000, and production release January 2001.
+
+=> 2003 - Version 4.0 was released on August 2002 as beta, and as production release on March 2003 (unions).
+
+=> 2004 - Version 4.1 was released on June 2004 as beta, and as production release on October 2004.
+
+=> 2005 - Version 5.0 was released on March 2005 as beta, and as a production release on October 2005.
+
+=> 2008 - Sun Microsystems acquired MySQL AB on the 26th February 2008, and Oracle Version 5.1 had its production release on 27th November 2008.
+
+=> 2010 - Oracle acquired Sun Microsystems on 27th January 2010 and general availability of version 5.5 was on 3rd December 2010.
+
+=> 2013 - General availability of Version 5.6 was enabled on 5th February 2013.
+
+=> 2015 - General availability of Version 5.7 was enabled on 21st October 2015.
+
+=> 2018 - General availability of Version 8.0 was enabled on 19th April 2018, and is the latest version of MySQL.
+
+Features:
+----------
+=> High Performance.
+=> High Availability.
+=> Scalability and Flexibility Run anything.
+=> Robust Transactional Support.
+=> Web and Data Warehouse Strengths.
+=> Strong Data Protection.
+=> Comprehensive Application Development.
+=> Management Ease.
+=> Open Source Freedom and 24 x 7 Support.
+=> Lowest Total Cost of Ownership.
+
+Oracle:
+------- 
+=> Oracle is a very large multi-user based database management system. Oracle is a relational database management system developed by 'Oracle Corporation'.
+
+=> Oracle works to efficiently manage its resources, a database of information among the multiple clients requesting and sending data in the network.
+
+=> It is an excellent database server choice for client/server computing. Oracle supports all major operating systems for both clients and servers, including MSDOS, NetWare, UnixWare, OS/2 and most UNIX flavors.
+
+History :
+----------
+=> Oracle began in 1977 and celebrating its 46 wonderful years in the industry (from 1977 to 2023).
+
+Features:
+---------
+=> Concurrency.
+=> Read Consistency.
+=> Locking Mechanisms.
+=> Quiesce Database.
+=> Portability.
+=> Self-managing database.
+=> SQL*Plus.
+=> ASM.
+=> Scheduler.
+=> Resource Manager.
+=> Data Warehousing.
+=> Materialized views.
+=> Bitmap indexes.
