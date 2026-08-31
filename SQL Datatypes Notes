@@ -1,0 +1,92 @@
+SQL Data Types :
+-----------------
+=> An SQL data type refers to the type of data which can be stored in a column of a database table.
+=> In a column, the user can store numeric, string, binary, etc by defining data types. 
+=> For example integer data, character data, monetary data, date and time data, binary strings, and so on.
+=> While creating a database table in a database, we need to specify following two attributes to define a table column:
+	-> Name of the column.
+	-> Data type of the column.
+Example :
+---------
+** For example, if you want to store student name in a column then you should give column name something like student_name and it's data type will be char(50) which means it can store a string of characters up to 50 characters.
+
+# Defining a Data Type :
+------------------------
+=> SQL Data types are defined during the creation of a table in a database. While creating a table, it is required to specify its respective data type and size along with the name of the column.
+Syntax :
+-------
+## CREATE TABLE table_name(column1 datatype, column2 datatype....).
+
+# Types of SQL Data Types :
+----------------------------
+=> There are three main types of SQL data types available in any RDBMS. They are listed below :
+-> Numeric
+-> String
+-> Date and Time
+
+Numeric :
+------------
+INT :
+-----
+=> A normal-sized integer that can be signed or unsigned. If signed, the allowable range is from -2147483648 to 2147483647. If unsigned, the allowable range is from 0 to 4294967295. You can specify a width of up to 11 digits.
+
+SMALLINT :
+-----------
+=> A small integer that can be signed or unsigned. If signed, the allowable range is from -32768 to 32767. If unsigned, the allowable range is from 0 to 65535. You can specify a width of up to 5 digits.
+
+MEDIUMINT:
+-----------
+=> A medium-sized integer that can be signed or unsigned. If signed, the allowable range is from -8388608 to 8388607. If unsigned, the allowable range is from 0 to 16777215. You can specify a width of up to 9 digits.
+
+BIGINT :
+--------
+=> A large integer that can be signed or unsigned. If signed, the allowable range is from -9223372036854775808 to 9223372036854775807. If unsigned, the allowable range is from 0 to 18446744073709551615. You can specify a width of up to 20 digits.
+
+FLOAT(M,D) :
+------------
+=> A floating-point number that cannot be unsigned. You can define the display length (M) and the number of decimals (D). This is not required and will default to 10,2, where 2 is the number of decimals and 10 is the total number of digits (including decimals). Decimal precision can go to 24 places for a FLOAT.
+
+DOUBLE(M,D) :
+-------------
+=> A double precision floating-point number that cannot be unsigned. You can define the display length (M) and the number of decimals (D). This is not required and will default to 16,4, where 4 is the number of decimals. Decimal precision can go to 53 places for a DOUBLE. REAL is a synonym for DOUBLE.
+
+String :
+---------
+
+CHAR(size) :
+------------
+=> A fixed length string which can have letters, numbers, and special characters. The size parameter specifies the column length in characters which can vary from from 0 to 255. Default size is 1.
+
+VARCHAR(size):
+--------------
+=> A variable length string which can contain letters, numbers, and special characters. The size parameter specifies the maximum string length in characters which can vary from 0 to 65535.
+TEXT:
+-----
+=> Used for long text (paragraphs).TEXT is used to store large amounts of text, more than what VARCHAR can handle.
+
+
+Date and Time Data Types :
+--------------------------
+DATE :
+-------
+A date in YYYY-MM-DD format, between 1000-01-01 and 9999-12-31. For example, December 30th, 1973 would be stored as 1973-12-30.
+
+DATETIME :
+----------
+A date and time combination in YYYY-MM-DD HH:MM:SS format, between 1000-01-01 00:00:00 and 9999-12-31 23:59:59. For example, 3:30 in the afternoon on December 30th, 1973 would be stored as 1973-12-30 15:30:00.
+
+TIMESTAMP:
+----------
+A timestamp between midnight, January 1st, 1970 and sometime in 2037. This looks like the previous DATETIME format, only without the hyphens between numbers; 3:30 in the afternoon on December 30th, 1973 would be stored as 19731230153000 ( YYYYMMDDHHMMSS ).
+
+TIME :
+-------
+Stores the time in a HH:MM:SS format.
+
+YEAR(M):
+---------
+Stores a year in a 2-digit or a 4-digit format. If the length is specified as 2 (for example YEAR(2)), YEAR can be between 1970 to 2069 (70 to 69). If the length is specified as 4, then YEAR can be 1901 to 2155. The default length is 4.
+
+BOOLEAN :
+--------
+=> In SQL, BOOLEAN represents true/false values.But MySQL does NOT have a real boolean type ,Instead TRUE = 1, FALSE = 0.
