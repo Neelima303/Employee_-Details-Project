@@ -1,0 +1,185 @@
+SQL Commands :
+--------------
+=> In RDBMS, Database tables are used to store the data in the form of some structures (fields and records).
+=> Here, a field is a column defining the type of data to be stored in a table and record is a row containing actual data.
+=> In simple words, we can say a Table is a combination of rows and columns.
+=> SQL provides various queries to interact with the data in a convenient way. We can use SQL statements to create and delete tables, inserting, updating and deleting data in these tables.
+
+1. DDL (Data Definition Language):
+----------------------------------
+
+1.create :
+---------
+=> SQL provides the CREATE TABLE statement to create a new table in a given database.
+=> An SQL query to create a table must define the structure of a table.
+=> The structure consists of the name of a table and names of columns in the table with each column's data type. Note that each table must be uniquely named in a database.
+=> Syntax :
+   ---------
+    => CREATE TABLE table_name(column1 datatype,column2 datatype,column3 datatype, ..... columnN datatype,);
+=> Here :
+---------
+--> CREATE TABLE is the keyword telling the database system what you want to do.
+--> The column parameters (e.g. column1, column2, column3, etc.) specify the names of the columns of the table.
+--> The datatype parameter specifies the type of data the column can hold (e.g. integer, varchar, string, etc.).
+
+# Verification:
+---------------
+=> Once your table is created, you can check if it has been created successfully or not.
+=> You can use SQL DESC table_name command to list down.
+=> Syntax : > DESC table_name;
+
+# Already Exists :
+-------------------
+=> Consider a situation where you will try to create a table which already exists, in such situation MySQL will throw the following error.
+=> ERROR 1050 (42S01): Table 'users' already exists.
+=> So to avoid such error we can use SQL command CREATE TABLE IF NOT EXISTS to create a table.
+=> Syntax:
+  -------
+  => CREATE TABLE IF NOT EXISTS table_name(column1 datatype,column2 datatype,column3 datatype,.....columnN datatype,);
+
+# Creating a table from existing table :
+-----------------------------------------
+=> Instead of creating a new table every time, one can also copy an existing table and its contents including its structure, into a new table.
+=> This can be done using a combination of the CREATE TABLE statement and the SELECT statement.
+=> Since its structure is copied, the new table will have the same column definitions as the original table.
+=> Syntax :
+  ---------
+  => CREATE TABLE NEW_TABLE_NAME AS SELECT column1, column2...column FROM EXISTING_TABLE_NAME WHERE Condition;
+
+
+2. Alter :
+----------
+=> The SQL ALTER TABLE command is a part of Data Definition Language (DDL) and modifies the structure of a table.
+=> The ALTER TABLE command can add or delete columns, create or destroy indexes, change the type of existing columns, or rename columns or the table itself.
+=> Syntax : ALTER TABLE table_name [alter_option ...];
+=> Where, the alter_option depends on the type of operation to be performed on a table.
+
+# Alter table - add column :
+-----------------------------
+=> If you need to add a new column to a table, you should use the ADD COLUMN option along with ALTER TABLE statement.
+=> Syntax : ALTER TABLE table_name ADD column_name datatype;
+=> alter table table_name add column_name datatype default value;
+
+# Alter table - drop column :
+-----------------------------
+=> If you need to drop an existing column from a table, you should use the DROP COLUMN option along with ALTER TABLE statement.
+=> Syntax : ALTER TABLE table_name DROP COLUMN column_name;
+
+# Alter table - add primary key :
+-----------------------------
+=> ALTER TABLE table_name ADD CONSTRAINT constraint_name PRIMARY KEY (column1, column2...);
+
+# ALTER TABLE − DROP PRIMARY KEY :
+-----------------------------------
+=> ALTER TABLE table_name DROP PRIMARY KEY;
+
+# ALTER TABLE − RENAME COLUMN :
+-------------------------------
+=> ALTER TABLE table_name RENAME COLUMN old_column_name to new_column_name;
+
+# ALTER TABLE − MODIFY DATATYPE:
+--------------------------------
+=> ALTER TABLE table_name MODIFY COLUMN column_name datatype;
+
+3. Drop :
+---------
+=> SQL provides command to DROP an existing table completely in a database.
+=> Once SQL DROP command is issued then there is no way back to recover the table including its data, so be careful before issuing this command in production system.
+=> The SQL DROP TABLE statement is a Data Definition Language (DDL) command that is used to remove a table's definition, and its data, indexes, triggers, constraints and permission specifications.
+=> You should be very careful while using this command because once a table is deleted then all the information available in that table will also be lost forever.
+=> Syntax : DROP TABLE table_name ;
+
+# Verification :
+-----------------
+=> Now, to verify if the table is actually dropped, you can use the DESC CUSTOMERS.
+=> DESC Table_name ;
+
+# IF EXISTS Clause :
+--------------------
+=> Instead of always checking if the table exists or not in a database before dropping it, you can use the IF EXISTS clause in the DROP TABLE statement.
+=> Syntax : DROP TABLE IF EXISTS table_name;
+
+# DROP a TEMPORARY TABLE :
+--------------------------
+=>You can include TEMPORARY keyword with DROP TABLE statement which will drop only TEMPORARY tables.
+=> Syntax : DROP TEMPORARY TABLE TEMP_TABLE;
+
+4. truncate :
+-------------
+=> SQL provides command to TRUNCATE a table completely in one go instead of deleting table records one by one which will be very time consuming and cumbersome process.
+=> The SQL TRUNCATE TABLE command is used to empty a table. This command is a sequence of DROP TABLE and CREATE TABLE statements and requires the DROP privilege.
+=> Syntax : TRUNCATE TABLE table_name;
+
+# TRUNCATE vs DELETE and DROP :
+----------------------
+=> Even though the TRUNCATE and DELETE commands work similar logically, there are some major differences that exist between them.
+
+# TRUNCATE :
+------------
+=> SQL's TRUNCATE command is used to remove all of the rows from a table, regardless of whether or not any conditions are met.
+=> It is a DDL(Data Definition Language) command.
+=> When you use the TRUNCATE command, the modifications made to the table are committed automatically.
+=> It removes all of the information in one go.
+=> The WHERE Clause is not available.
+=> TRUNCATE utilizes a table lock, which locks the pages so they cannot be deleted.
+=> The only activity recorded is the deallocation of the pages on which the data is stored.
+=> It takes comparatively less amount of transaction space.
+=> It is much faster.
+=> It requires table alter permission.
+
+# DELETE :
+----------
+=> The DELETE command in SQL removes one or more rows from a table based on the conditions specified in a WHERE Clause.
+=> It is a DML(Data Manipulation Language) command.
+=> There is a need to make a manual COMMIT after making changes to the DELETE command, for the modifications to be committed.
+=> It deletes rows one at a time and applies same criteria to each deletion.
+=> The WHERE clause serves as the condition in this case.
+=> All rows are locked after deletion.
+=> It makes a record of each and every transaction in the log file.
+=> It consumes a greater amount of transaction space compared to TRUNCATE command.
+=> When it comes to large databases, it is much slower.
+=> It requires authorization to delete.
+
+# DROP :
+--------
+=> The DROP command in SQL removes an entire table from a database including its definition, indexes, constraints, data etc.
+=> It is a DDL(Data Definition Language) command.
+=> The table space is completely freed from the memory.
+=> All the integrity constraints are removed.
+=> Requires ALTER and CONTROL permissions on the table schema and table respectively, to be able to perform this command.
+=> DROP command is much slower than TRUNCATE but faster than DELETE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
