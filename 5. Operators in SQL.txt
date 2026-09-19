@@ -1,0 +1,189 @@
+Operators in SQL
+------------------
+=> An SQL operator is a reserved word or a character used primarily in an SQL statement's WHERE clause to perform operation(s), such as comparisons and arithmetic operations. These Operators are used to specify conditions in an SQL statement and to serve as conjunctions for multiple conditions in a statement.
+=> An SQL operator can be either a unary or binary operator. A unary operator (example unary ++ or unary -- ) uses only one operand to perform the unary operation, whereas the binary operator (example + or - etc) uses two operands to perform the binary operation.
+
+Types of Operator in SQL :
+--------------------------
+=> Arithmetic operators
+=> Comparison operators
+=> Logical operators
+=> Operators used to negate conditions
+
+SQL Arithmetic Operators :
+---------------------------
+=> SQL Arithmetic Operators are used to perform mathematical operations on the numerical values. SQL provides following operators to perform mathematical operations.
+=> + (Addition) - (Subtraction) *(Multiplication) / (Division) % (Modulus).
+
+SQL Comparison Operators :
+---------------------------
+=> SQL Comparison Operators test whether two given expressions are the same or not. These operators are used in SQL conditional statements while comparing one expression with another and they return a Boolean value which can be either TRUE or FALSE. The result of an SQL comparison operation can be UNKNOWN when one or another operand has it's value as NULL.
+
+ =	Equal to	5 = 5 returns TRUE
+!=	Not equal	5 != 6 returns TRUE
+<>	Not equal	5 <> 4 returns TRUE
+>	Greater than	4 > 5 returns FALSE
+<	Less than	4 < 5 returns TRUE
+>=	Greater than or equal to	4 >= 5 returns FALSE
+<=	Less than or equal to	4 <= 5 returns TRUE
+!<	Not less than	4 !< 5 returns FALSE
+!>	Not greater than
+
+SQL Logical Operators:
+----------------------
+=> SQL Logical Operators are very similar to comparison operators and they test for the truth of some given condition. These operators return a Boolean value which can be either a TRUE or FALSE. The result of an SQL logical operation can be UNKNOWN when one or another operand has it's value as NULL.
+
+-> ALL	: TRUE if all of a set of comparisons are TRUE.
+-> AND	: TRUE if all the conditions separated by AND are TRUE.
+-> ANY	: TRUE if any one of a set of comparisons are TRUE.
+-> BETWEEN :TRUE if the operand lies within the range of comparisons.
+-> EXISTS : TRUE if the subquery returns one or more records.
+-> IN	: TRUE if the operand is equal to one of a list of expressions.
+-> LIKE	: TRUE if the operand matches a pattern specially with wildcard.
+-> NOT	: Reverses the value of any other Boolean operator.
+-> OR	: TRUE if any of the conditions separated by OR is TRUE.
+-> IS NULL :TRUE if the expression value is NULL.
+-> SOME : TRUE if some of a set of comparisons are TRUE.
+-> UNIQUE : The UNIQUE operator searches every row of a specified table for uniqueness (no duplicates).
+
+SQL Operator Precedence :
+--------------------------
+=> The operator precedence in SQL is the sequence in which the SQL evaluates the different operators in a given expression. The operators with higher precedence get evaluated first.
+Operator	Operation
++, -	: identity, negation
+*, /	: multiplication, division
++, -	: addition, subtraction
+=, !=, <, >, <=, >=, IS NULL, LIKE, BETWEEN, IN	Comparison
+NOT	: logical negation
+AND	: conjunction
+OR	: inclusion
+
+# Additional Operators :
+------------------------
+=> UNION :
+---------
+-> Syntax: SELECT column_name FROM table_name1 UNION SELECT column_name FROM table_name2;
+# UNION on a Single Field :
+---------------------------
+-> Ex : SELECT SALARY FROM CUSTOMERS UNION SELECT AMOUNT FROM ORDERS;
+# UNION on Multiple Fields :
+----------------------------
+-> SELECT ID, SALARY FROM CUSTOMERS WHERE ID > 5 UNION SELECT CUSTOMER_ID, AMOUNT FROM ORDERS WHERE CUSTOMER_ID > 2;
+
+=> UNION ALL:
+------------
+ -> Syntax : SELECT * FROM table1 UNION ALL SELECT * FROM table2;
+
+=> INTERSECT : 
+-> Syntax :SELECT column1, column2,..., column FROM table1, table2,..., tableN INTERSECT SELECT column1, column2,..., column FROM table1, table2,..., tableN
+
+-> Ex: SELECT NAME, AGE, HOBBY FROM STUDENTS_HOBBY INTERSECT SELECT NAME, AGE, HOBBY FROM STUDENTS;
+
+# INTERSECT with BETWEEN Operator :
+-----------------------------------
+Ex : SELECT NAME, AGE, HOBBY FROM STUDENTS_HOBBY
+WHERE AGE BETWEEN 25 AND 30
+INTERSECT
+SELECT NAME, AGE, HOBBY FROM STUDENTS
+WHERE AGE BETWEEN 20 AND 30;
+
+# INTERSECT with IN Operator :
+-------------------------------
+Ex : SELECT NAME, AGE, HOBBY FROM STUDENTS_HOBBY
+WHERE HOBBY IN('Cricket')
+INTERSECT
+SELECT NAME, AGE, HOBBY FROM STUDENTS
+WHERE HOBBY IN('Cricket');
+
+# INTERSECT with LIKE Operator :
+--------------------------------
+Ex : SELECT NAME, AGE, HOBBY FROM STUDENTS_HOBBY
+WHERE NAME LIKE 'd%'
+INTERSECT
+SELECT NAME, AGE, HOBBY FROM STUDENTS
+WHERE NAME LIKE 'd%';
+
+=> EXCEPT Operator :
+---------------------
+-> The EXCEPT operator in SQL is used to retrieve all the unique records from the left operand (query), except the records that are present in the result set of the right operand (query).
+-> Syntax : SELECT column1, column2,..., columnN
+FROM table1, table2,..., tableN
+[Conditions] //optional
+EXCEPT
+SELECT column1, column2,..., columnN
+FROM table1, table2,..., tableN
+[Conditions] //optional
+
+-> Ex : SELECT NAME, HOBBY, AGE FROM STUDENTS
+EXCEPT 	
+SELECT NAME, HOBBY, AGE FROM STUDENTS_HOBBY;
+
+# EXCEPT with BETWEEN Operator :
+--------------------------------
+-> Ex : SELECT NAME, HOBBY, AGE
+FROM STUDENTS
+WHERE AGE BETWEEN 20 AND 30
+EXCEPT 
+SELECT NAME, HOBBY, AGE 
+FROM STUDENTS_HOBBY
+WHERE AGE BETWEEN 20 AND 30
+
+# Except with IN Operator :
+---------------------------
+-> Ex : SELECT NAME, HOBBY, AGE FROM STUDENTS
+WHERE HOBBY IN('Cricket')
+EXCEPT
+SELECT NAME, HOBBY, AGE FROM STUDENTS_HOBBY
+WHERE HOBBY IN('Cricket');
+
+# EXCEPT with LIKE Operator :
+-----------------------------
+-> Ex : SELECT ID, NAME, HOBBY, AGE FROM STUDENTS
+WHERE HOBBY LIKE 'F%'
+EXCEPT
+SELECT ID, NAME, HOBBY, AGE FROM STUDENTS_HOBBY
+WHERE HOBBY LIKE 'F%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
